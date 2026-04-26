@@ -48,17 +48,17 @@ struct StudentsView: View {
 struct addButtonStyle: ButtonStyle{
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(.title2)
+            .font(.title3)
             .bold()
-            .padding(.top, 20)
-            .padding(.bottom, 20)
-            .padding(.horizontal, 70)
+            .padding(.top, 15)
+            .padding(.bottom, 15)
+            .padding(.horizontal, 40)
             .foregroundColor(Color.white)
             .opacity(configuration.isPressed ? 0.7 : 1.0)
             .background(Color(white: 0.2))
             .cornerRadius(40)
-            .padding(.top, 50)
-        
+            .scaleEffect(configuration.isPressed ? 0.92 : 1.0)
+            .padding(.top, 20)
     }
 }
 
@@ -82,4 +82,5 @@ struct studentButtonStyle: ButtonStyle{
 
 #Preview {
     StudentsView()
+        .modelContainer(for: Student.self)
 }
