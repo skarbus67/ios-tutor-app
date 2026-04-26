@@ -14,5 +14,6 @@ struct korkiApp: App {
         WindowGroup {
             MainTabView()
         }
+        .modelContainer(for: Student.self)
     }
 }
