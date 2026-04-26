@@ -11,15 +11,17 @@ import Observation
 
 @Observable
 class StudentsViewModel {
-    func addStudent(name: String, surname: String, hourlyRate: Int, subject: String, context: ModelContext){
-        context.insert(Student(name: name, surname: surname, hourlyRate: hourlyRate, subject: subject))
-        try? context.save()
+    var name: String = ""
+    var surname: String = ""
+    var subject: String = ""
+    var hourlyRate: Int? = nil
+    
+    var isFormValid: Bool {
+        !name.isEmpty && !surname.isEmpty && !subject.isEmpty && hourlyRate != nil
     }
-    
-    
-    func deleteStudent(student: Student, context: ModelContext){
-        context.delete(student)
-        try? context.save()
+
+    func addStudent(context: ModelContext) {
+        let student = Student(name: name, surname: surname, hourlyRate: hourlyRate!, subject: subject)
+        context.insert(student)
     }
-    
 }
