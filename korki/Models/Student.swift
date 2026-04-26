@@ -1,5 +1,5 @@
 //
-//  StudentsModel.swift
+//  Student.swift
 //  korki
 //
 //  Created by Mikołaj Skarbek on 22/04/2026.
