@@ -22,7 +22,7 @@ class LessonViewModel{
         let newLesson = Lesson(
             lessonStartDate: lessonStartDate,
             lessonEndDate: lessonEndDate,
-            paymentDate: paymentDate!,
+            paymentDate: paymentDate,
             paymentAmount: paymentAmount!,
             lessonDescription: lessonDescription == "" ? "lesson \(lessonStartDate.formatted())" : lessonDescription,
             isPaid: isPaid)
