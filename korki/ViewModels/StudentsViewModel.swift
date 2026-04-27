@@ -24,4 +24,8 @@ class StudentsViewModel {
         let student = Student(name: name, surname: surname, hourlyRate: hourlyRate!, subject: subject)
         context.insert(student)
     }
+    
+    func deleteStudent(student: Student, context: ModelContext){
+        context.delete(student)
+    }
 }

@@ -11,6 +11,8 @@ import SwiftData
 struct EditStudentForm: View {
     @Environment(\.dismiss) var dismiss
     @Bindable var student: Student
+    @State private var viewModel = StudentsViewModel()
+    @Environment(\.modelContext) private var context
     
     var body: some View {
         NavigationStack{
@@ -23,7 +25,6 @@ struct EditStudentForm: View {
                 Section(header: Text("lessons")){
                     Text("lekcja")
                 }
-
                 
             }
             .navigationTitle(student.name + " " + student.surname)
@@ -40,6 +41,18 @@ struct EditStudentForm: View {
                     .fontWeight(.regular)
                 }
             }
+            
+            Spacer()
+            Button(action: {
+                viewModel.deleteStudent(student: student, context: context)
+                dismiss()
+            }){
+                Text("delete")
+                
+                   
+            }
+            .foregroundColor(Color.red)
+            
 
         }
     }
