@@ -12,6 +12,7 @@ struct StudentsView: View {
     @Environment(\.modelContext) private var context
     @Query var students: [Student]
     @State var addStudent: Bool = false
+    @State var editStudent: Student? = nil
     
     var body: some View {
         ScrollView{
@@ -25,6 +26,9 @@ struct StudentsView: View {
             .sheet(isPresented: $addStudent){
                 AddStudentForm()
             }
+            .sheet(item: $editStudent){ student in
+                EditStudentForm(student: student)
+            }
         }
     }
     
@@ -36,7 +40,7 @@ struct StudentsView: View {
         }
     
     func studentButton(student: Student) -> some View{
-        Button(action: {}){
+        Button(action: {editStudent = student}){
             Text(student.name + " " + student.surname)
         }
         .buttonStyle(studentButtonStyle())
