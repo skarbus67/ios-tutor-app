@@ -87,4 +87,5 @@ struct studentButtonStyle: ButtonStyle{
 #Preview {
     StudentsView()
         .modelContainer(for: Student.self)
+        .modelContainer(for: Lesson.self)
 }
