@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct MainTabView: View {
-    @State private var selectedTab: Tab = .settings
+    @State private var selectedTab: Tab = .students
     
     var body: some View {
         
@@ -24,4 +25,5 @@ struct MainTabView: View {
 
 #Preview {
     MainTabView()
+        .modelContainer(for: Student.self)
 }
