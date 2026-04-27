@@ -15,13 +15,15 @@ class Lesson{
     var paymentDate: Date
     var paymentAmount: Int
     var lessonDescription: String
+    var isPaid: Bool
     
     var student: Student?
     
-    init(lessonDate: Date, paymentDate: Date, paymentAmount: Int, lessonDescription: String) {
+    init(lessonDate: Date, paymentDate: Date, paymentAmount: Int, lessonDescription: String, isPaid: Bool) {
         self.lessonDate = lessonDate
         self.paymentDate = paymentDate
         self.paymentAmount = paymentAmount
         self.lessonDescription = lessonDescription
+        self.isPaid = isPaid
     }
 }
