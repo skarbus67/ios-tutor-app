@@ -13,6 +13,7 @@ struct EditStudentForm: View {
     @Bindable var student: Student
     @State private var viewModel = StudentsViewModel()
     @Environment(\.modelContext) private var context
+    @State var showAddLessonForm: Bool = false
     
     var body: some View {
         NavigationStack{
@@ -23,7 +24,13 @@ struct EditStudentForm: View {
                     Text(student.subject)
                 }
                 Section(header: Text("lessons")){
-                    Text("lekcja")
+                    ForEach(student.lessons) {lesson in
+                        lessonButton(lesson: lesson)
+                    }
+                        
+                    Button(action: {showAddLessonForm = true}){
+                        Text("add lesson")
+                    }
                 }
                 
             }
@@ -39,6 +46,7 @@ struct EditStudentForm: View {
                     Button("edit") {
                     }
                     .fontWeight(.regular)
+                    .disabled(true)
                 }
             }
             
@@ -55,14 +63,36 @@ struct EditStudentForm: View {
             
 
         }
+        .sheet(isPresented: $showAddLessonForm) {
+            AddLessonForm(student: student)
+        }
+    }
+    
+    func lessonButton(lesson: Lesson) -> some View{
+        HStack{
+            Button(action: {}){
+            Text(lesson.lessonDescription)
+            }
+            Spacer()
+            if(lesson.isPaid){
+                Text("paid")
+                    .foregroundColor(Color.green)
+            }else{
+                Text("not paid")
+                    .foregroundColor(Color.red)
+            }
+        }
+        
     }
 }
 
 #Preview {
-    @Previewable @State var s1 : Student = Student(name: "miki", surname: "skarbek", hourlyRate: 69, subject: "matma")
+    @Previewable @State var s1 : Student = Student(name: "miki", surname: "skarbek", hourlyRate: 80, subject: "matma")
     VStack{}
         .sheet(isPresented: .constant(true)) {
-
+            
             EditStudentForm(student: s1)
         }
+        .modelContainer(for: Lesson.self)
+    
 }
