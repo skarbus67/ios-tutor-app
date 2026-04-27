@@ -16,6 +16,9 @@ class Student{
     var hourlyRate : Int
     var subject : String
     
+    @Relationship(deleteRule: .cascade, inverse: \Lesson.student)
+        var lessons: [Lesson] = []
+    
     init(name: String, surname: String, hourlyRate: Int, subject: String) {
         self.name = name
         self.surname = surname
