@@ -32,6 +32,15 @@ class LessonViewModel{
         context.insert(newLesson)
     }
     
+    func suggestedLessonPrice(student: Student) -> Int{
+        let timeInSec = lessonEndDate.timeIntervalSince(lessonStartDate)
+        let timeInHours = (timeInSec/3600).rounded(.up)
+        
+        let price = timeInHours * Double(student.hourlyRate)
+        
+        return Int(price)
+    }
+    
     
     
     
