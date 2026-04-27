@@ -34,11 +34,11 @@ class LessonViewModel{
     
     func suggestedLessonPrice(student: Student) -> Int{
         let timeInSec = lessonEndDate.timeIntervalSince(lessonStartDate)
-        let timeInHours = (timeInSec/3600).rounded(.up)
+        let timeInHours = (timeInSec/3600)
         
         let price = timeInHours * Double(student.hourlyRate)
         
-        return Int(price)
+        return Int(price.rounded(.up))
     }
     
     var isFormValid : Bool {
