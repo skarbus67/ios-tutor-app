@@ -13,14 +13,14 @@ class Lesson{
     @Attribute(.unique) var id: UUID = UUID()
     var lessonStartDate: Date
     var lessonEndDate: Date
-    var paymentDate: Date
+    var paymentDate: Date?
     var paymentAmount: Int
     var lessonDescription: String
     var isPaid: Bool
     
     var student: Student?
     
-    init(lessonStartDate: Date, lessonEndDate: Date, paymentDate: Date, paymentAmount: Int, lessonDescription: String, isPaid: Bool) {
+    init(lessonStartDate: Date, lessonEndDate: Date, paymentDate: Date?, paymentAmount: Int, lessonDescription: String, isPaid: Bool) {
         self.lessonStartDate = lessonStartDate
         self.lessonEndDate = lessonEndDate
         self.paymentDate = paymentDate

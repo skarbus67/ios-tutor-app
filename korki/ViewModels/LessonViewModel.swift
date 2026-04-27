@@ -12,7 +12,7 @@ import SwiftData
 class LessonViewModel{
     var lessonStartDate: Date = .now
     var lessonEndDate: Date = .now.advanced(by: 3600)
-    var paymentDate: Date = .now
+    var paymentDate: Date? = nil
     var paymentAmount: Int? = nil
     var lessonDescription: String = ""
     var isPaid: Bool = false
@@ -22,7 +22,7 @@ class LessonViewModel{
         let newLesson = Lesson(
             lessonStartDate: lessonStartDate,
             lessonEndDate: lessonEndDate,
-            paymentDate: paymentDate,
+            paymentDate: paymentDate!,
             paymentAmount: paymentAmount!,
             lessonDescription: lessonDescription,
             isPaid: isPaid)
