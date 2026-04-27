@@ -24,7 +24,7 @@ class LessonViewModel{
             lessonEndDate: lessonEndDate,
             paymentDate: paymentDate!,
             paymentAmount: paymentAmount!,
-            lessonDescription: lessonDescription,
+            lessonDescription: lessonDescription == "" ? "lesson \(lessonStartDate.formatted())" : lessonDescription,
             isPaid: isPaid)
         
         newLesson.student = student
@@ -41,6 +41,9 @@ class LessonViewModel{
         return Int(price)
     }
     
+    var isFormValid : Bool {
+        paymentAmount != nil
+    }
     
     
     
