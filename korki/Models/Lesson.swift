@@ -11,7 +11,8 @@ import SwiftData
 @Model
 class Lesson{
     @Attribute(.unique) var id: UUID = UUID()
-    var lessonDate: Date
+    var lessonStartDate: Date
+    var lessonEndDate: Date
     var paymentDate: Date
     var paymentAmount: Int
     var lessonDescription: String
@@ -19,8 +20,9 @@ class Lesson{
     
     var student: Student?
     
-    init(lessonDate: Date, paymentDate: Date, paymentAmount: Int, lessonDescription: String, isPaid: Bool) {
-        self.lessonDate = lessonDate
+    init(lessonStartDate: Date, lessonEndDate: Date, paymentDate: Date, paymentAmount: Int, lessonDescription: String, isPaid: Bool) {
+        self.lessonStartDate = lessonStartDate
+        self.lessonEndDate = lessonEndDate
         self.paymentDate = paymentDate
         self.paymentAmount = paymentAmount
         self.lessonDescription = lessonDescription
