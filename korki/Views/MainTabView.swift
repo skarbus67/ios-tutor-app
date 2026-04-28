@@ -17,6 +17,9 @@ struct MainTabView: View {
             if(selectedTab == .students){
                 StudentsView()
             }
+            else if(selectedTab == .statistics){
+                StatisticsView()
+            }
             Spacer()
             TabBar(selectedTab: $selectedTab)
         }
@@ -25,5 +28,5 @@ struct MainTabView: View {
 
 #Preview {
     MainTabView()
-        .modelContainer(for: Student.self)
+        .modelContainer(for: [Student.self, Lesson.self])
 }
