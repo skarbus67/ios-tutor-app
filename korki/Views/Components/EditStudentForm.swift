@@ -14,6 +14,7 @@ struct EditStudentForm: View {
     @State private var viewModel = StudentsViewModel()
     @Environment(\.modelContext) private var context
     @State var showAddLessonForm: Bool = false
+    @State var selectedLesson: Lesson? = nil
     
     var body: some View {
         NavigationStack{
@@ -66,11 +67,16 @@ struct EditStudentForm: View {
         .sheet(isPresented: $showAddLessonForm) {
             AddLessonForm(student: student)
         }
+        .sheet(item: $selectedLesson) { lesson in
+            EditLessonForm(lesson: lesson)
+        }
     }
     
     func lessonButton(lesson: Lesson) -> some View{
         HStack{
-            Button(action: {}){
+            Button(action: {
+                selectedLesson = lesson
+            }){
             Text(lesson.lessonDescription)
             }
             Spacer()
