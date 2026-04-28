@@ -14,6 +14,6 @@ struct korkiApp: App {
         WindowGroup {
             MainTabView()
         }
-        .modelContainer(for: Student.self)
+        .modelContainer(for: [Student.self, Lesson.self])
     }
 }
