@@ -17,6 +17,26 @@ class LessonViewModel{
     var lessonDescription: String = ""
     var isPaid: Bool = false
     
+    init() {}
+        
+    init(lesson: Lesson) {
+        self.lessonStartDate = lesson.lessonStartDate
+        self.lessonEndDate = lesson.lessonEndDate
+        self.paymentDate = lesson.paymentDate
+        self.paymentAmount = lesson.paymentAmount
+        self.lessonDescription = lesson.lessonDescription
+        self.isPaid = lesson.isPaid
+    }
+        
+    func update(lesson: Lesson) {
+        lesson.lessonStartDate = lessonStartDate
+        lesson.lessonEndDate = lessonEndDate
+        lesson.paymentDate = isPaid ? paymentDate : nil
+        lesson.paymentAmount = paymentAmount ?? 0
+        lesson.lessonDescription = lessonDescription
+        lesson.isPaid = isPaid
+    }
+    
     
     func addLessonToStudent(student: Student, context: ModelContext){
         let newLesson = Lesson(
