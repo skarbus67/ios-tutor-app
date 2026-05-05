@@ -35,6 +35,8 @@ struct EditLessonForm: View {
                     
                     DatePicker("end date", selection: $viewModel.lessonEndDate, displayedComponents: [.date, .hourAndMinute])
                         .disabled(true)
+                    
+                    Text("price : " + String(viewModel.paymentAmount!) + " pln")
                 
                     Toggle("is paid", isOn: $viewModel.isPaid)
                     
