@@ -31,7 +31,7 @@ class LessonViewModel{
     func update(lesson: Lesson) {
         lesson.lessonStartDate = lessonStartDate
         lesson.lessonEndDate = lessonEndDate
-        lesson.paymentDate = isPaid ? paymentDate : nil
+        lesson.paymentDate = isPaid ? (paymentDate ?? .now) : nil
         lesson.paymentAmount = paymentAmount ?? 0
         lesson.lessonDescription = lessonDescription
         lesson.isPaid = isPaid
@@ -42,7 +42,7 @@ class LessonViewModel{
         let newLesson = Lesson(
             lessonStartDate: lessonStartDate,
             lessonEndDate: lessonEndDate,
-            paymentDate: paymentDate,
+            paymentDate: isPaid ? (paymentDate ?? .now) : nil,
             paymentAmount: paymentAmount!,
             lessonDescription: lessonDescription == "" ? "lesson \(lessonStartDate.formatted())" : lessonDescription,
             isPaid: isPaid)
