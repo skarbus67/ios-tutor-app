@@ -20,6 +20,9 @@ struct MainTabView: View {
             else if(selectedTab == .statistics){
                 StatisticsView()
             }
+            else if(selectedTab == .settings){
+                SettingsView()
+            }
             Spacer()
             TabBar(selectedTab: $selectedTab)
         }
