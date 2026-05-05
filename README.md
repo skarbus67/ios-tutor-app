@@ -19,9 +19,10 @@ The core of the application where you can manage your tutoring base.
 
 ### 2. Statistics 🚧 *In Progress*
 A dedicated dashboard to visualize your tutoring business.
+* Track total earnings
+* *Planned:* Track quartal earning limits for unregistered business activity.
 * *Planned:* Track monthly and yearly income.
 * *Planned:* View unpaid lessons summary.
-* *Planned:* Analyze time spent teaching per subject.
 
 ### 3. Settings 🚧 *In Progress*
 App configuration and data management.
