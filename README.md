@@ -9,7 +9,7 @@ The project follows a strict **MVVM (Model-View-ViewModel)** architecture. All u
 
 The application is divided into three main sections:
 
-### 1. Students ✅
+### 1. Students 🧑‍🎓
 The core of the application where you can manage your tutoring base.
 * Add, edit, and delete students.
 * Track individual student details such as hourly rate and subject.
@@ -17,16 +17,17 @@ The core of the application where you can manage your tutoring base.
 * Auto-calculate suggested lesson prices based on the student's base hourly rate and lesson duration.
 * Mark lessons as paid or unpaid to easily track debts.
 
-### 2. Statistics 🚧 *In Progress*
+### 2. Statistics 📊
 A dedicated dashboard to visualize your tutoring business.
 * Track total earnings
 * *Planned:* Track quartal earning limits for unregistered business activity.
 * *Planned:* Track monthly and yearly income.
 * *Planned:* View unpaid lessons summary.
 
-### 3. Settings 🚧 *In Progress*
+### 3. Settings ⚙️
 App configuration and data management.
-* *Planned:* **"Export to CSV"** A feature allowing you to export all your financial and lesson data into a spreadsheet for tax preparation and personal record-keeping.
+* **"Export to CSV"** A feature allowing you to export all your financial and lesson data into a spreadsheet for tax preparation and personal record-keeping.
+* *Planned:* Delete all data
 
 ## 🛠️ Tech Stack
 * **iOS 17+**
